@@ -132,13 +132,13 @@
     <img src="transparent-cube.png" alt="Access Illustration" style="width: 200px; display: block; margin: 15px auto; border-radius: 6px;">
     <h2>Request Access</h2>
     <p>Please enter your company email below to receive access to report.</p>
-<form id="access-form" onsubmit="event.preventDefault(); checkDomainAndSubmit();" action="https://formsubmit.co/provider@axxion-solutions.com" method="POST">
+<form id="request-form">
   <label for="email">Company Email</label>
   <input type="email" id="email" name="email" required>
-  <input type="hidden" name="_subject" value="New Portal Access Request">
-  <input type="hidden" name="_captcha" value="false">
+  <p id="form-message" style="margin-top: 10px;"></p>
   <button type="submit">Request Login</button>
 </form>
+
 
 
 
@@ -180,6 +180,7 @@
 
 </body>
 </html>
+
 
 
 
