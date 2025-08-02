@@ -1,56 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
   <!-- Firebase App (core) + Firestore SDK -->
-<script type="module">
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-  import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
-
-  const firebaseConfig = {
-    apiKey: "AIzaSyDt6SlOTh1Ql2RN5evXrzw8bxe-l2Chkt4",
-    authDomain: "axxion-portal.firebaseapp.com",
-    projectId: "axxion-portal",
-    storageBucket: "axxion-portal.firebasestorage.app",
-    messagingSenderId: "66596559953",
-    appId: "1:66596559953:web:b8259b349cb11eb9016c70"
-  };
-
-  const app = initializeApp(firebaseConfig);
-  const db = getFirestore(app);
-
-  window.checkDomainAndSubmit = async function () {
-    const email = document.getElementById("email").value.trim();
-    const domain = email.split("@")[1]?.toLowerCase();
-
-    if (!domain) {
-      alert("Please enter a valid email address.");
-      return;
-    }
-
-    try {
-      const snapshot = await getDocs(collection(db, "approved_domains"));
-      const approvedDomains = snapshot.docs.map(doc => doc.id.toLowerCase());
-
-      if (approvedDomains.includes(domain)) {
-        // Send the form (using FormSubmit)
-        const form = document.getElementById("access-form");
-        form.submit();
-
-        // Redirect after delay (let FormSubmit handle email)
-        setTimeout(() => {
-          window.location.href = "thanks.html";
-        }, 300); // Slight delay to allow email to be sent
-      } else {
-        alert("Request submitted. Please allow up to 24 hours for approval.");
-        // Optional: Still submit form for notification
-        document.getElementById("access-form").submit();
-      }
-    } catch (error) {
-      console.error("Error checking domain:", error);
-      alert("An error occurred while processing your request.");
-    }
-  }
-</script>
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -180,6 +130,7 @@
 
 </body>
 </html>
+
 
 
 
