@@ -110,26 +110,28 @@
     const isAllowed = await window.checkEmailDomain(email);
 
     if (isAllowed) {
-      messageEl.textContent = "Request sent. Please check your email. *Can take up to 24 hours*";
+  // Trigger email to provider
+  await fetch("https://formsubmit.co/ajax/provider@axxion-solutions.com", {
+    method: "POST",
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      email: email,
+      _subject: `Access Request from ${email}`,
+      _captcha: false
+    })
+  });
 
-      // Trigger email to provider
-      fetch("https://formsubmit.co/ajax/provider@axxion-solutions.com", {
-        method: "POST",
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          email: email,
-          _subject: `Access Request from ${email}`,
-          _captcha: false
-        })
-      });
-    } else {
-      messageEl.textContent = "This domain is not recognized. Access denied.";
-    }
+  // Show popup, then redirect after user clicks OK
+  alert("Request sent. Please check your email. *Can take up to 24 hours*");
+  window.location.href = "/thank-you.html";
+}
+
   });
 </script>
 
 </body>
 </html>
+
 
 
 
