@@ -123,14 +123,18 @@
 
   // Show popup, then redirect after user clicks OK
   alert("Request sent. Please check your email. *Can take up to 24 hours*");
-  window.location.href = "/thank-you.html";
-}
-
+  window.location.href = "/thanks.html";
+      
+ } else {
+      // Denied domain message
+      alert("E-mail domain not recognized as active account.");
+    }
   });
 </script>
 
 </body>
 </html>
+
 
 
 
