@@ -81,13 +81,20 @@
     <img src="transparent-cube.png" alt="Access Illustration" style="width: 200px; display: block; margin: 15px auto; border-radius: 6px;">
     <h2>Request Access</h2>
     <p>Please enter your company email below to receive access to report.</p>
-    <form action="https://formsubmit.co/billing@axxion-solutions.com" method="POST">
-      <label for="email">Company Email</label>
-      <input type="email" id="email" name="email" required>
-      <input type="hidden" name="_subject" value="New Portal Access Request">
-      <input type="hidden" name="_captcha" value="false">
-      <button type="submit">Request Login</button>
-    </form>
+    <form action="https://formsubmit.co/provider@axxion-solutions.com" method="POST">
+  <label for="email">Company Email</label>
+  <input type="email" id="email" name="email" required>
+
+  <!-- Hidden fields -->
+  <input type="hidden" name="_subject" value="New Portal Access Request">
+  <input type="hidden" name="_autoresponse" value="Thank you. Your access request has been received. Please allow up to 24 hours for first-time login.">
+  <input type="hidden" name="_captcha" value="false">
+  <input type="hidden" name="_template" value="box">
+  <input type="hidden" name="_next" value="https://axxion-solutions.com/thanks.html">
+
+  <button type="submit">Request Login</button>
+</form>
+
   </div>
 
   <footer>
@@ -96,6 +103,7 @@
   </footer>
 </body>
 </html>
+
 
 
 
